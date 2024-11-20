@@ -12,14 +12,14 @@ def calculator(num1, num2, operator):
     elif operator == "/":
         if num2 == 0:
             print("Error")
-            return
+            return "Error"
         else:
             result = num1 / num2
             print(f"The result is: {result}")
     elif operator == "%":
         if num2 == 0:
             print("Error")
-            return
+            return "Error"
         else:
             result = num1 % num2
             print(f"The result is: {result}")
@@ -35,11 +35,9 @@ def calculator(num1, num2, operator):
     elif operator == "<=":
         result = num1 <= num2
         print(f"The result is: {result}")
-
-
     else:
         print("Invalid operator.")
-        return
+        return "Invalid operator"
 
     return result
 
@@ -120,15 +118,16 @@ def calculate_weekly_pay(hours_worked):
         overtime_hours = hours_worked - standard_hours
         total_pay = (regular_rate * standard_hours) + (overtime_rate * overtime_hours)
     else:
-        total_pay = regular_rate * standard_hours
+        total_pay = regular_rate * hours_worked
 
 
 
     return total_pay
     
 def is_prime(num):
-
-    if num > 1:
+    if num == 2:
+        output = True
+    elif num > 1:
         for i in range(2, num):
             if num % i == 0:
                 output = False
@@ -137,10 +136,6 @@ def is_prime(num):
                 output = True  
     else:
         output = False
-            
-
-
-
     return output
 
 def sum_of_evens(min_value, max_value):
